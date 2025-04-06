@@ -5,7 +5,7 @@ import pytesseract
 
 # Initialize the DeepSeek client
 client = OpenAI(
-    api_key="sk-dab726e7d76e402c9fc8d3b98037f782",  # Replace with your DeepSeek API key
+    api_key="YOUR API KEY",  # Replace with your DeepSeek API key
     base_url="https://api.deepseek.com/v1",
 )
 
