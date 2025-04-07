@@ -31,7 +31,7 @@ The languages for OCR are currently Serbian, Croatian, Greek, and Romanian, but 
 
 ### Running the app
 
-Option a) You can run the script on the terminal to launch a web interface (in that case, the link will last 72hs)
+Option a) You can run the script on the terminal to launch a web interface (in that case, the link will last 72hs) <br /> 
 Option b) You can host the app on Hugging Face's Spaces to have permanent access.
 
 
