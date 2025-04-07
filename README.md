@@ -8,9 +8,7 @@ The app is especially meant for historians using image files of their archival o
 
 ## Instructions and comments
 
-Run the script on the terminal to launch a web interface.
-
-Remember to add your API key:
+Remember to add your API key on the script:
 
 <pre> client = OpenAI(
     api_key="YOUR API KEY",  # Replace with your DeepSeek API key
@@ -27,3 +25,10 @@ The languages for OCR are currently Serbian, Croatian, Greek, and Romanian, but 
     "Romanian": "ron"
 }
 </pre>
+
+##Running the app
+
+Option a) You can run the script on the terminal to launch a web interface (in that case, the link will last 72hs)
+Option b) You can host the app on Hugging Face's Spaces to have permanent access.
+
+
