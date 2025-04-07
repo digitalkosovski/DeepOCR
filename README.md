@@ -6,7 +6,9 @@ This Python script builds on Tesseract to OCR image files and it uses the Deepse
 
 The app is especially meant for historians using image files of their archival or press sources, who are in need of quick previews and translations to check whether these sources contain relevant information for their research and are therefore worth a more detailed exploration. The OCR is still imperfect, but it does the trick. The downside is you need to have a Deepseek API key to run it.
 
-## Instructions and comments
+## Instructions 
+
+### API key 
 
 Remember to add your API key on the script:
 
@@ -15,6 +17,7 @@ Remember to add your API key on the script:
     base_url="https://api.deepseek.com/v1",
 ) </pre>
 
+### Languages 
 The languages for OCR are currently Serbian, Croatian, Greek, and Romanian, but that can easily be tuned in the script here:
 
 <pre> language_map = {
@@ -26,7 +29,7 @@ The languages for OCR are currently Serbian, Croatian, Greek, and Romanian, but 
 }
 </pre>
 
-##Running the app
+### Running the app
 
 Option a) You can run the script on the terminal to launch a web interface (in that case, the link will last 72hs)
 Option b) You can host the app on Hugging Face's Spaces to have permanent access.
