@@ -38,7 +38,7 @@ def correct_OCR(text):
         return ds_text
     except Exception as e:
         print(f"Error while correcting OCR: {e}")
-        return text
+        return ds_text
 
 # Translate into English or French
 def translate(text, target_language="English"):
