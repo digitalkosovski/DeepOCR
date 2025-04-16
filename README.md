@@ -1,5 +1,5 @@
 # DeepOCR
-A Python app that leverages Deepseek API to improve OCR.
+A Python app that leverages Deepseek API for post-OCR correction.
 
 ## About
 This experimental Python script builds on Tesseract to OCR image files and leverages the Deepseek API to correct mistakes coming from imperfect OCR-ization. It also has the option to provide a translation in English or French.
