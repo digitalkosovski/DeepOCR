@@ -6,7 +6,7 @@ This experimental Python script builds on Tesseract to OCR image files and lever
 
 This experimental app is especially meant for historians who are using image files of their sources who need to improve defective OCR-ization, whether because the image is low-quality or because OCR-ization their respective language is particularly faulty. It is also practical for those who are in need of quick previews and translations to check whether these sources contain relevant information for their research and are therefore worth a more detailed exploration. 
 
-The OCR is still imperfect, and often inconsistent, but it does the trick. 
+The result is still imperfect and often inconsistent, but it does the trick. 
 
 The downside is you need to have a Deepseek API key to run it. If you want to run the app on a [Hugging Face Space](https://huggingface.co/spaces), you need to have some basic coding skills. 
 
