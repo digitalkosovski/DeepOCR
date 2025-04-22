@@ -33,6 +33,15 @@ The languages for OCR are currently Serbian, Croatian, Greek, and Romanian, but 
 }
 </pre>
 
+### NER
+
+The prompt for NER is tuned for documents concerning Southeast European history. Tune the prompt according to your need.
+
+<pre> 
+def entity_recog(text):
+    lang_prompt = "TUNE YOUR PROMPT HERE"
+</pre>
+
 ### Running the app
 
 Option a) You can run the script on the command line to launch a web interface (in that case, the link will last 72hs). <br /> 
