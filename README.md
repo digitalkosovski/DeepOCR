@@ -2,7 +2,7 @@
 A Python app that leverages Deepseek API for post-OCR correction.
 
 ## About
-This experimental Python script builds on Tesseract to OCR image files and leverages the Deepseek API to correct mistakes coming from imperfect OCR-ization. It also has the option to provide a translation in English or French.
+This experimental Python script builds on Tesseract to OCR image files and leverages the Deepseek API to correct mistakes coming from imperfect OCR-ization. It also has the option to provide a translation in English or French. Additionnally, it offers basic named-entity recognition by identifying the most common occurences of places and names in the text.
 
 This experimental app is especially meant for historians who are using image files of their sources who need to improve defective OCR-ization, whether because the image is low-quality or because OCR-ization their respective language is particularly faulty. It is also practical for those who are in need of quick previews and translations to check whether these sources contain relevant information for their research and are therefore worth a more detailed exploration. 
 
