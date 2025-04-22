@@ -5,7 +5,7 @@ import pytesseract
 
 # Initialize the DeepSeek client
 client = OpenAI(
-    api_key="YOUR API KEY",  # Replace with your DeepSeek API key
+    api_key="YOUR API KEY",
     base_url="https://api.deepseek.com/v1",
 )
 
@@ -29,7 +29,7 @@ def correct_OCR(text):
         response = client.chat.completions.create(
             model="deepseek-chat",
             messages=[
-                {"role": "system", "content": "You are a helpful assistant that checks and corrects spelling mistakes in defective OCR text. Please do not rewrite, nor summarize, nor reorganize the text."},
+                {"role": "system", "content": "You are a helpful assistant for a researcher working on the contemporary history of Southeast Europe. Considering the history of the region, you check and correct spelling mistakes in defective OCR text that comes from old newspapers. Please do not rewrite, nor summarize, nor reorganize the text."},
                 {"role": "user", "content": f"Content:\n{text}"}
             ],
             temperature=0.7,
@@ -58,18 +58,39 @@ def translate(text, target_language="English"):
         print(f"Error while translating text: {e}")
         return text
 
+# Recognize places and names
+
+def entity_recog(text):
+    lang_prompt = "You are a historian of contemporary Southeast European history. With your knowledge of the context, now go through this text and identify all places and people. Provide them respectively in two lists with their corresponding count in absolute numbers. Do not add any supplementary information."
+    try:
+        response = client.chat.completions.create(
+            model="deepseek-chat",
+            messages=[
+                {"role": "system", "content": lang_prompt},
+                {"role": "user", "content": f"{text}"}
+            ],
+            temperature=0.7,
+        )
+        ds_text = response.choices[0].message.content.strip()
+        return ds_text
+    except Exception as e:
+        print(f"Error while recognizing entities: {e}")
+        return text
+
+
+
 # Main logic
 def process_image(image, language_label, translate_text=False, target_language="English"):
     lang_code = language_map.get(language_label, "eng")
     text = ocr_image(image, lang_code)
     corrected_text = correct_OCR(text)
-
+    entities = entity_recog(text)
     if translate_text:
         translated_text = translate(corrected_text, target_language)
     else:
         translated_text = ""
 
-    return corrected_text, translated_text
+    return text, corrected_text, translated_text, entities
 
 # Gradio interface
 iface = gr.Interface(
@@ -81,10 +102,12 @@ iface = gr.Interface(
         gr.Dropdown(choices=["English", "French"], label="Target Translation Language", value="English")
     ],
     outputs=[
-        gr.Textbox(label="Corrected Text"),
-        gr.Textbox(label="Translated Text (if selected)")
+        gr.Textbox(label="Original OCR"),
+        gr.Textbox(label="Corrected OCR"),
+        gr.Textbox(label="Translated Corrected OCR (if selected)"),
+        gr.Textbox(label="Entities")
     ],
-    title="OCR and Translation for Archival Sources",
+    title="OCR, Translation, and NER for Archival Sources",
     description="Upload an image, select OCR language, correct the OCR text, and optionally translate it to English or French."
 )
 
